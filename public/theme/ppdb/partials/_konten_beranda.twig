@@ -1,0 +1,29 @@
+<div class="deskripsi mx-3 animate__animated animate__bounc">
+    <div class="container">
+        <div class="row">
+            <div class="col order-md-1">
+              <img class="w-100 mb-5" src="{{beranda.image1}}" alt="">
+            </div>
+            <div class="col-md-7 mt-md-3">
+                <h2 class="title text-uppercase">{{beranda.title1}}</h2>
+                <p class="sub-title">{{beranda.stitle1}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="manfaat mx-3">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+              <img class="w-100 mb-5" src="{{beranda.image2}}" alt="">
+            </div>
+            <div class="col-md-7 mt-md-3">
+                <h2 class="title text-uppercase">{{beranda.title2}}</h2>
+                <div class="sub-title">
+                  {% include 'partials/_accordion.twig' with { content: accordions, contenttype: 'accordion' } %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

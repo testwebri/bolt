@@ -1,0 +1,12 @@
+{% setcontent cardas = 'carda' %}
+
+<div class="container-fluid">
+    <div class:"card_alur_ppdb">
+        {% for alur in alurs %}
+            <div class="row title-page align-items-center mb-5">
+                <h1 style="background-image: url( {{alur.image}} ); padding: 8rem; background-position: center; background-size: cover;">{{alur.title}}</h1>
+            </div>
+            {% include 'partials/_carda.twig' with { content: cardas, contenttype: 'carda' } %}
+        {% endfor %}
+    </div>
+</div>

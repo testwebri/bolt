@@ -1,0 +1,80 @@
+{% macro display_submenu(item) %}
+<li class="nav-item dropdown ms-md-2">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  {{ item.label|default(item.title) }}
+  </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      {% for item in item.submenu %}
+        <li><a class="dropdown-item" href="{{ item.uri }}">{{ item.label|default(item.title) }}</a></li>
+      {% endfor %}
+    </ul>
+</li>
+{% endmacro %}
+
+{% macro display_main(item) %}
+<li class="nav-item ms-md-2">
+    <a href="{{ item.uri }}" class="nav-link {% if item|current %} active {% else %} {% endif %} ">{{ item.label|default(item.title) }} </a>
+</li>
+{% endmacro %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg_nav px-4">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img class="w-75" src="{{ asset('img/logo_bogor.png') }}" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              {% for item in menu %}
+                {% if not item.submenu %}
+                  {{ _self.display_main(item) }}
+                {% else %}
+                  {{ _self.display_submenu(item) }}
+                {% endif %}
+              {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+{# ------------ KALO EROR PAKE INI WKWK ------------
+{% macro display_submenu(item) %}
+  <li class="nav-item">
+    <div class="dropdown">
+      <a class="btn dropdown-toggle" href="#" style="font-size: 17px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ item.label|default(item.title) }}
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      {% for item in item.submenu %}
+        <a class="dropdown-item" href="{{ item.uri }}">{{ item.label|default(item.title) }}</a>
+      {% endfor %}
+      </div>
+    </div>
+  </li>
+{% endmacro %} 
+
+<nav class="navbar navbar-expand-lg navbar-light bg_nav px-4 shadow">
+    <div class="container">
+    <a href="/" class="navbar-brand"><img class="w-75" src="{{ asset('img/logo_bogor.png') }}"></a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <div class="navbar-collapse collapse justify-content-end" id="navbarContent">
+        <ul class="navbar-nav ml-lg-4 pt-3 pt-lg-0">
+
+    {% for item in menu %}
+
+        {% if not item.submenu %}
+            {{ _self.display_main(item) }}
+        {% else %}
+            {{ _self.display_submenu(item) }}
+        {% endif %}
+
+    {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav> 
+#}

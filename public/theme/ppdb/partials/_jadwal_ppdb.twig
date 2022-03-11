@@ -1,0 +1,62 @@
+<div class="page-section">
+      <div class="container">
+        <div class="text-center wow fadeInUp">
+          <h2 class="title-section">Jadwal <span class="marked">PPDB</span> Online Kota Bogor</h2>
+          <div class="divider mx-auto"></div>
+        </div>
+        {% for jadwal in jadwals %}
+        <div class="row mt-5">
+          <div class="col-lg-3 py-3 wow fadeInUp" style="margin-top: 150px; margin-bottom:-75px">
+            <h5>{{jadwal.title}}</h5>
+            <p>{{jadwal.desc}}</p>
+          </div>
+          {% if jadwal.step1 is not empty %}
+          <div class="col-lg-3 py-3 text-center wow fadeInUp">
+            <img src="{{jadwal.image1}}" width="150px" height="150px" style="margin-bottom: 10px;">
+            <h5>{{jadwal.step1}}</h5>
+            <p>{{jadwal.tanggal_mulai1|date("d M Y")}} <span>s.d.</span>{{jadwal.tanggal_selesai1|date("d M Y")}} </p>
+          </div>
+          {% endif %}
+          {% if jadwal.step2 is not empty %}
+          <div class="col-lg-3 py-3 text-center wow fadeInUp">
+            <img src="{{jadwal.image2}}" width="150px" height="150px" style="margin-bottom: 10px;">
+            <h5>{{jadwal.step2}}</h5>
+            <p>{{jadwal.tanggal_mulai2|date("d M Y")}} <span>s.d.</span>{{jadwal.tanggal_selesai2|date("d M Y")}} </p>
+          </div>
+          {% endif %}
+          {% if jadwal.step3 is not empty %}
+          <div class="col-lg-3 py-3 text-center wow fadeInUp">
+            <img src="{{jadwal.image3}}" width="150px" height="150px" style="margin-bottom: 10px;">
+            <h5>{{jadwal.step3}}</h5>
+            <p>{{jadwal.tanggal_mulai3|date("d M Y")}} <span>s.d.</span>{{jadwal.tanggal_selesai3|date("d M Y")}} </p>
+          </div>
+          <div class="col-lg-3 py-3 wow fadeInUp">
+          </div>
+          {% endif %}
+          {% if jadwal.step4 is not empty %}
+          <div class="col-lg-3 py-3 text-center wow fadeInUp">
+            <img src="{{jadwal.image4}}" width="150px" height="150px" style="margin-bottom: 10px;">
+            <h5>{{jadwal.step4}}</h5>
+            <p>{{jadwal.tanggal_mulai4|date("d M Y")}} <span>s.d.</span>{{jadwal.tanggal_selesai4|date("d M Y")}} </p>
+          </div>
+          {% endif %}
+          {% if jadwal.step5 is not empty %}
+          <div class="col-lg-3 py-3 text-center wow fadeInUp">
+            <img src="{{jadwal.image5}}" width="150px" height="150px" style="margin-bottom: 10px;">
+            {% dump(jadwal.step5) %}
+             {% dump(jadwal) %}
+            <h5>{{jadwal.step5}}</h5>
+            <p>{{jadwal.tanggal_mulai5|date("d M Y")}} <span>s.d.</span>{{jadwal.tanggal_selesai5|date("d M Y")}} </p>
+          </div>
+          {% endif %}
+          {% if jadwal.step6 is not empty %}
+          <div class="col-lg-3 py-3 text-center wow fadeInUp">
+            <img src="{{jadwal.image6}}" width="150px" height="150px" style="margin-bottom: 10px;">
+            <h5>{{jadwal.step6}}</h5>
+            <p>{{jadwal.tanggal_mulai6|date("d M Y")}} <span>s.d.</span>{{jadwal.tanggal_selesai6|date("d M Y")}} </p>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div> <!-- .container -->
+    </div> <!-- .page-section -->

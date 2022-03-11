@@ -1,0 +1,19 @@
+<title>Aturan Pelaksanaan - PPDB Bogor</title>
+{% include 'partials/_head.twig' %}
+
+<body>
+
+    {% setcontent footer = 'footer' %}
+    {% setcontent aturans = 'aturans' %}
+
+    <header>
+        {{ menu('main', template='partials/_menu.twig') }}
+    </header>
+
+    {% include 'partials/_aturan_pelaksanaan.twig' %}
+
+    <footer>
+        {% include 'footer.twig' with { content: footer, contenttype: 'footer' } %}
+    </footer>
+
+</body>

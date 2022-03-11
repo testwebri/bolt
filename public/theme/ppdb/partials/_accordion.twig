@@ -1,0 +1,89 @@
+<div class="accordion" id="accordionExample">
+    {% for accordion in accordions %}
+        {% if ( accordion.acctitle_open is not empty ) or ( accordion.accbody_open is not empty ) %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        {{accordion.acctitle_open}}
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {{accordion.accbody_open}}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if ( accordion.acctitle is not empty ) or ( accordion.accbody is not empty ) %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{accordion.id}}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{accordion.id}}" aria-expanded="false" aria-controls="collapse{{accordion.id}}">
+                        {{accordion.acctitle}}
+                    </button>
+                </h2>
+                <div id="collapse{{accordion.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{accordion.id}}" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {{accordion.accbody}}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+{# -------------------- KALO DIATAS ERROR PAKE INI WKWK -------------------- #}
+
+{# <div class="accordion" id="accordionExample">
+    {% for accordion in accordions %}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading{{accordion.id}}">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{accordion.id}}" aria-expanded="true" aria-controls="collapse{{accordion.id}}">
+                    {{accordion.acctitle}}
+                </button>
+            </h2>
+            <div id="collapse{{accordion.id}}" class="accordion-collapse collapse show" aria-labelledby="heading{{accordion.id}}" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    {{accordion.accbody}}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div> #}
+
+{# <div class="accordion" id="accordionExample">
+    {% for accordion in accordions %}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                {% if accordion.acctitle_open is not empty %}
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        {{accordion.acctitle_open}}
+                    </button>
+                {% endif %}
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                {% if accordion.accbody_open is not empty %}
+                <div class="accordion-body">
+                    {{accordion.accbody_open}}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading{{accordion.id}}">
+                {% if accordion.acctitle is not empty %}
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{accordion.id}}" aria-expanded="false" aria-controls="collapse{{accordion.id}}">
+                    {{accordion.acctitle}}
+                </button>
+                {% endif %}
+            </h2>
+            <div id="collapse{{accordion.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{accordion.id}}" data-bs-parent="#accordionExample">
+                {% if accordion.accbody is not empty %}
+                <div class="accordion-body">
+                    {{accordion.accbody}}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div> #}

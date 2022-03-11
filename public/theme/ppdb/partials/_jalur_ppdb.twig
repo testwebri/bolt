@@ -1,0 +1,28 @@
+<head>
+    <link rel="stylesheet" href="{{ asset('../css/index.css') }}">
+</head>
+    
+    <div class="page-section">
+      <div class="container">
+        <div class="text-center wow fadeInUp">
+          <h2 class="title-section">Jalur <span class="marked">Seleksi</span> PPDB Online Kota Bogor</h2>
+          <div class="divider mx-auto"></div>
+        </div>
+      {% for jalur in jalurs %}
+        <div class="row mb-2">
+          <div class="col-lg-6 py-3 wow zoomIn">
+            <div class="img-place text-center" style="margin-top: 0px;">
+              <img src="{{jalur.image}}" alt="" width="400px" height="400px">
+            </div>
+          </div>
+          <div class="col-lg-6 py-3 wow fadeInRight">
+              <h3 class="title-section" style="margin-top: 20px;">{{jalur.title}}</h3>
+              {# <div class="divider"></div> #}
+            <div class="jalur-desc" style="background-color: #EEEEEE; padding:3px 3px 3px 3px; border-radius: 10px; margin-top: 10px;">
+              <p style="padding-left: 20px; margin-left: 20px;">{{jalur.desc}}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div> <!-- .container -->
+    </div> <!-- .page-section -->

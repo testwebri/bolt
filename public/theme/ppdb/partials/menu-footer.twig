@@ -1,0 +1,24 @@
+{% macro display_submenu(item) %}
+    <li><a href="#">{{ item.label|default(item.title) }}</a>
+        <ul>
+            {% for item in item.submenu %}
+                <li><a href="{{ item.uri }}">{{ item.label|default(item.title) }}</a></li>
+            {% endfor %}
+        </ul>
+    </li>
+{% endmacro %}
+{% macro display_main(item) %}
+    <li><a href="{{ item.uri }}">{{ item.label|default(item.title) }}</a></li>
+{% endmacro %}
+<div class="col-md-3 ps-md-4 line">
+    <h2 class="title-footer-menu">Menu</h2>
+    <ul class="text-footer-menu list-unstyled">
+        {% for item in menu %}
+            {% if not item.submenu %}
+                {{ _self.display_main(item) }}
+            {% else %}
+                {{ _self.display_submenu(item) }}
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

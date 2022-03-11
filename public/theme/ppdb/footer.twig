@@ -1,0 +1,38 @@
+<footer class="bg-g px-4">
+        <div class="container">
+            <div class="row row-footer">
+                {# Column 1 #}
+                <div class="col-md-4 line pe-md-4">
+                    <img src="{{footer.image}}" alt="">
+                    <h2 class="title-footer">{{footer.title}}</h2>
+                    <p class="text-footer">{{footer.text}}</p>
+                </div>
+                {# Column 2 #}
+                {{ menu('main', template='partials/menu-footer.twig') }}
+                {# Column 3 #}
+                <div class="col-md-5 ps-md-4">
+                    <h2 class="title-footer-hub">Hubungi Kami</h2>
+                    <div class="contact">
+                        <div class="tel">
+                            <span class="iconify" data-icon="ant-design:phone-filled" data-width="25" data-height="25"></span><a href="">(0251) 8341101</a>
+                        </div>
+                        <div class="mail">
+                            <span class="iconify" data-icon="fluent:mail-16-filled" data-width="25" data-height="25"></span><a href="">disdik@kotabogor.go.id</a>                            
+                        </div>
+                        <div class="maps">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5910039460396!2d106.80645041418602!3d-6.573190066083457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c425c4ada37b%3A0xf4f736e2bc560b7a!2sDinas%20Pendidikan%20Kota%20Bogor!5e0!3m2!1sid!2sid!4v1646070232586!5m2!1sid!2sid" width="430" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row copyright">
+                <div class="col-md-6 col-lg-8">
+                    <p>© 2022 Portal PPDB. All rights reserved</p>
+                </div>
+                <div class="col-md-6 col-lg-4 text-md-end btn-copyright">
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+</footer>

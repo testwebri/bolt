@@ -1,0 +1,30 @@
+<div class="manfaat mx-3">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+              <img class="w-100 mb-5" src="{{manfaat.image}}" alt="">
+            </div>
+            <div class="col-md-7 mt-md-3">
+                <h2 class="title text-uppercase">{{manfaat.title}}</h2>
+                <div class="sub-title">
+                  <div class="accordion" id="accordionExample">
+                    {% for manfaat in manfaats %}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                {{manfaat.acctitle}}
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                {{manfaat.accbody}}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

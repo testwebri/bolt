@@ -1,0 +1,36 @@
+<title>Portal PPDB Kota Bogor </title>
+{% include 'partials/_head.twig' %}
+<body>
+
+{# {% setcontent pricings = 'pricings' earliest limit 3 %} #}
+{% setcontent sliders = 'sliders' earliest limit 3 %}
+{# {% setcontent deskripsi = 'deskripsis' %}
+{% setcontent linkppdbs = 'linkppdb' earliest limit 4 %} #}
+{% setcontent beranda = 'beranda' %}
+{% setcontent footer = 'footer' %}
+
+
+  <header>
+  {{ menu('main', template='partials/_menu.twig') }}
+  </header>
+  
+  {# {% include 'partials/_slider.twig' %} #}
+  {% include 'partials/_slider.twig' with { content: sliders, contenttype: 'sliders' } %}
+
+  <main>
+  {# {% include 'partials/_link_ppdb.twig' with { content: linkppdbs, contenttype: 'linkppdb' } %} #}
+  {# {% include 'partials/_deskripsi_ppdb.twig' with { content: deskripsi, contenttype: 'deskripsis' } %} #}
+
+    {# <div class="page-section"> #}
+      {% include 'partials/_konten_beranda.twig' with { content: beranda, contenttype: 'beranda' } %}
+    {# </div> <!-- .page-section --> #}
+
+  <footer>
+      {# {{ menu('main', template='partials/_footer.twig') }} #}
+      {% include 'footer.twig' with { content: footer, contenttype: 'footer' } %}
+  </footer>
+
+    {% include 'partials/_script.twig' %}
+
+</body>
+</html>

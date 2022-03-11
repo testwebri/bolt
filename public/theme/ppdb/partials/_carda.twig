@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        {% for carda in cardas %}
+            <div class="col-3">
+                <div class="card" style="height: 36rem;">
+                    {% if carda.image is not empty %}
+                    <img src="{{carda.image}}" class="card-img-top" alt="...">
+                    {% elseif carda.image is empty %}
+                    <img src="{{ asset('./img/404.png') }}" width="200px" height"200px" class"card-img-top" >
+                    {% endif %}
+                    <div class="card-body d-flex flex-column">
+                        <p class="card-title">{{carda.title}}</p>
+                        <p class="card-text">{{carda.desc}}</p>
+                        {% if carda.label_link is not empty %}
+                        <a href="{{carda.link}}" class="btn-card align-self-start" style="margin-top: auto;">{{carda.label_link}}</a>
+                        {% elseif carda.label_link is empty %}
+                        <a href="{{carda.link}}">{{carda.label_link}}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

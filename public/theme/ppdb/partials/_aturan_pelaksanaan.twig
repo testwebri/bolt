@@ -1,0 +1,26 @@
+<div class="aturan-pelaksanaan">
+    <div class="container">
+        <div class="row">
+            {% for aturan in aturans %}
+                <div class="col-3">
+                    <div class="card">
+                        {% if aturan.image is not empty %}
+                        <img src="{{ aturan.image }}" class="card-img-top" alt="...">
+                        {% elseif aturan.image is empty %}
+                        <img src="{{ asset('./img/404.png') }}" width="200px" height"200px" class"card-img-top" >
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="card-title">{{ aturan.subtitle }}</p>
+                            <p class="card-text">{{ aturan.desc }}</p>
+                            {% if aturan.button is not empty %}
+                            <a href="{{ aturan.link }}" class="btn btn-primary">{{ aturan.button }}</a>
+                            {% elseif aturan.button is empty %}
+                            <a href="{{ aturan.link }}" class="btn btn-primary d-none">{{ aturan.button }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

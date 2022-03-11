@@ -1,0 +1,29 @@
+<title>Jadwal PPDB - Portal PPDB </title>
+{% include 'partials/_head.twig' %}
+<body>
+
+  {% setcontent jadwals = 'jadwals' earliest limit 6 %}
+  {% setcontent footer = 'footer' %}
+
+  <!-- Back to top button -->
+  <div class="back-to-top"></div>
+
+  <header>
+      {{ menu('main', template='partials/_menu.twig') }}
+    {# {% include 'partials/_menu.twig' %} #}
+  </header>
+
+  <main style="margin-top: 80px;">
+  {% include 'partials/_jadwal_ppdb.twig' with { content: jadwals, contenttype: 'jadwals' } %}
+
+  </main>
+
+  <footer>
+      {# {{ menu('main', template='partials/_footer.twig') }} #}
+      {% include 'footer.twig' with { content: footer, contenttype: 'footer' } %}
+  </footer>
+
+  {% include 'partials/_script.twig' %}
+
+</body>
+</html>

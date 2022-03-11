@@ -1,0 +1,23 @@
+<div class="link-app mx-3 my-5">
+    <div class="container">
+      <h2 class="title-link text-uppercase">link ppdb</h2>
+        <div class="row">
+          {% for linkppdb in linkppdbs %}
+          <div class="col-md-3">
+              <div class="card">
+                {% if linkppdb.image is not empty %}
+                  <img src="{{linkppdb.image}}" class="card-img-top" alt="...">
+                    {% elseif linkppdb.image is empty %}
+                      <img src="{{ asset('./img/blank_card.png') }}" class="card-img-top" alt="..."> 
+                {% endif %}
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{linkppdb.t_card}}</h5>
+                  <p class="card-text">{{linkppdb.tx_card[:287]}}</p>
+                  <a href="{{linkppdb.link}}" class="btn-card align-self-start" style="margin-top: auto;" target="_blank">{{linkppdb.l_link}}</a>
+                </div>
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+</div>

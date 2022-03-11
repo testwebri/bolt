@@ -1,0 +1,55 @@
+{# <div id="carouselExampleCaptions" class="carousel slide mb-5" data-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+  </div>
+  <div class="carousel-inner">
+    {% for slider in sliders %}
+    <div class="carousel-item {% if loop.first %}active{% endif %}">
+      <img src="{{slider.image}}" width="100%" height="615px" alt="" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-md-block">
+        <h1 class="title-carou">{{slider.title}}</h1>
+        <p class="sbtitle-carou">{{slider.desc}}</p>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <button class="carousel-control-prev m-auto" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </a>
+</div> #}
+
+
+<div class="carousel">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for slider in sliders %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}" data-bs-interval="10000">
+                <img src="{{slider.image}}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-md-block">
+                    <h1 class="title-carou">{{slider.title}}</h1>
+                    <p class="sbtitle-carou">{{slider.desc}}</p>
+                    {% if slider.tlink is not empty %}
+                      <a class="btn btn-primary" href="{{slider.ulink}}" role="button" target="_blank">{{slider.tlink}}</a>
+                    {% endif %}
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+</div>
